@@ -1,4 +1,5 @@
 package net.yaourtprod.sidej;
+
 public interface IRedisClient<K,V> {
 	/**
 	 * Authenticate to the server.<br />
