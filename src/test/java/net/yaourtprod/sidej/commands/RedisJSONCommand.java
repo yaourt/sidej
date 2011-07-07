@@ -1,6 +1,8 @@
 package net.yaourtprod.sidej.commands;
 
-public class RedisJSONCommand {
+import java.util.Comparator;
+
+public class RedisJSONCommand implements Comparable<RedisJSONCommand> {
 	private String name;
 	private String summary;
 	private String since;
@@ -51,4 +53,14 @@ public class RedisJSONCommand {
 		this.arguments = arguments;
 	}
 
+	public int compareTo(final RedisJSONCommand other) {
+		if(null == other) {
+			return 1;
+		}
+		final int groupCompare = group.compareTo(other.group); 
+		if(0 != groupCompare) {
+			return groupCompare;
+		}
+		return name.compareTo(other.name);
+	}
 }
